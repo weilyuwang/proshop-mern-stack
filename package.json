@@ -1,0 +1,22 @@
+{
+  "name": "proshop",
+  "version": "1.0.0",
+  "description": "MERN shopping app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weilyuwang/proshop-mern-stack.git"
+  },
+  "author": "Weilyu Wang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/weilyuwang/proshop-mern-stack/issues"
+  },
+  "homepage": "https://github.com/weilyuwang/proshop-mern-stack#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
