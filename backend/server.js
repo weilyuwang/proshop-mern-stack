@@ -1,8 +1,14 @@
 import express from "express";
 import dotenv from "dotenv";
+
+// Need to include .js when importing files using ES Module import syntax
+import connectDB from "./config/db.js";
 import products from "./data/products.js";
 
 dotenv.config(); // Loads .env file contents into | process.env
+
+// Connect to DB
+connectDB();
 
 const app = express();
 

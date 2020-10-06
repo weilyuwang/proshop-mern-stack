@@ -30,3 +30,9 @@
 
 - To use `ES Module` instead of `CommonJS Module`:  
   Add `“type”: “module”` to the `package.json` for your project, and Node.js will treat all .js files in your project as ES modules.
+
+## Database
+
+### MongoDB
+
+`MongoDB Atlas` + `mongoose`
