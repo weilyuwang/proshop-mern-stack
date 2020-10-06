@@ -1,12 +1,22 @@
 # ProShop MERN Stack
 
-## Dev Tools
+## Dev Tools (Optional)
 
-`nodemon` + `concurrently`
+### To enable hot reload
+
+`nodemon` npm module
+
+### To start up Frontend + Backend concurrently
+
+`concurrently` npm module
+
+### To customize console logging style
+
+`colors` npm module
 
 ## Environment Variables Config
 
-`dotenv`
+`dotenv` npm module
 
 - Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env
 
@@ -14,13 +24,13 @@
 
 ### Theme
 
-`Bootswatch - LUX` + `react-bootstrap` npm module
+`Bootswatch - LUX` with `react-bootstrap` npm module
 
 ### Icons
 
-`font-awesome` from cdnjs.com
+`font-awesome` CDN from cdnjs.com
 
-### Routes
+### SPA Routes
 
 `react-router-dom` + `react-router-bootstrap`: Integration between React Router v4 and React Bootstrap.
 
@@ -35,4 +45,4 @@
 
 ### MongoDB
 
-`MongoDB Atlas` + `mongoose`
+`MongoDB Atlas` + `mongoose` npm module
