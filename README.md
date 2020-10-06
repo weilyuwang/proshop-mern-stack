@@ -1,5 +1,15 @@
 # ProShop MERN Stack
 
+## Dev Tools
+
+`nodemon` + `concurrently`
+
+## Environment Variables Config
+
+`dotenv`
+
+- Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env
+
 ## React Frontend
 
 ### Theme
