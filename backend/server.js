@@ -2,9 +2,10 @@ import express from "express";
 import dotenv from "dotenv";
 import colors from "colors";
 
-// Need to include .js when importing files using ES Module import syntax
+// Make sure to include .js when importing files using ES Module import syntax
 import connectDB from "./config/db.js";
-import products from "./data/products.js";
+
+import productRoutes from "./routes/productRoutes.js";
 
 dotenv.config(); // Loads .env file contents into | process.env
 
@@ -17,15 +18,7 @@ app.get("/", (req, res) => {
   res.send("API is running");
 });
 
-app.get("/api/products", (req, res) => {
-  res.json(products); // convert the list of objects into JSON
-});
-
-app.get("/api/products/:id", (req, res) => {
-  // Find the product by param id
-  const product = products.find((p) => p._id === req.params.id);
-  res.json(product);
-});
+app.use("/api/products", productRoutes);
 
 const PORT = process.env.PORT || 5000;
 
