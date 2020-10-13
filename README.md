@@ -14,6 +14,10 @@
 
 `colors` npm module
 
+### Redux Dev Tools
+
+`redux-devtools-extension` npm module + Google Chrome `Redux DevTools` extension
+
 ## Environment Variables Config
 
 `dotenv` npm module
@@ -33,6 +37,12 @@
 ### SPA Routes
 
 `react-router-dom` + `react-router-bootstrap`: Integration between React Router v4 and React Bootstrap.
+
+### State Management
+
+`React Hooks (useState, useEffect, etc.)` for component-level state management
+
+`Redux Pattern` for global-level state management with `redux`, `react-redux` and `redux-thunk` npm modules
 
 ## NodeJS Backend
 
