@@ -10,7 +10,6 @@ const App = () => {
   return (
     <Router>
       <Header />
-      {/* py-3: padding on y-axis of value 3 (top & bottom) */}
       <main className="py-3">
         <Container>
           <Route path="/" component={HomeScreen} exact />
