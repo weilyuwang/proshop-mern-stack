@@ -9,7 +9,9 @@ import { listProducts } from "../actions/productAction";
 const HomeScreen = () => {
   //A hook to access the redux dispatch function.
   const dispatch = useDispatch();
-
+  // Allows you to extract data from the Redux store state, using a selector function.
+  // The selector is approximately equivalent to the mapStateToProps argument
+  // to connect conceptually.
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
 
