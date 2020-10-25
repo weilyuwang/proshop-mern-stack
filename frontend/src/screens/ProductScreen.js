@@ -16,7 +16,7 @@ import Loader from "../components/Loader";
 import { listProductDetails } from "../actions/productActions";
 
 const ProductScreen = ({ history, match }) => {
-  const [qty, setQty] = useState(0);
+  const [qty, setQty] = useState(1);
 
   const dispatch = useDispatch();
 
@@ -25,7 +25,7 @@ const ProductScreen = ({ history, match }) => {
 
   useEffect(() => {
     dispatch(listProductDetails(match.params.id));
-  }, [match]);
+  }, [dispatch, match]);
 
   const addToCartHandler = () => {
     history.push(`/cart/${match.params.id}?qty=${qty}`); // redirect to cart
