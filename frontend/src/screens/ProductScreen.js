@@ -13,7 +13,7 @@ import {
 import Rating from "../components/Rating";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
-import { listProductDetails } from "../actions/productAction";
+import { listProductDetails } from "../actions/productActions";
 
 const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(0);
