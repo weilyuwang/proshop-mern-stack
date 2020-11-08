@@ -26,4 +26,26 @@ const authUser = asyncHandler(async (req, res) => {
   }
 });
 
-export { authUser };
+// @desc      Get user profile
+// @route     GET /api/users/profile
+// @access    Private
+const getUserProfile = asyncHandler(async (req, res) => {
+  // user property is added to req object by the protect auth middleware
+  const user = await User.findById(req.user._id);
+
+  if (user) {
+    // If user is found, return the user info
+    res.json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      isAdmin: user.isAdmin,
+    });
+  } else {
+    // Authorization token has been verified, but user is not found
+    res.status(404);
+    throw new Error("User not found");
+  }
+});
+
+export { authUser, getUserProfile };
