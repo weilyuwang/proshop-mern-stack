@@ -56,3 +56,11 @@
 ### MongoDB
 
 `MongoDB Atlas` + `mongoose` npm module
+
+
+## Authentication
+
+### JSON Web Token
+
+`jsonwebtoken` npm module: An implementation of JSON Web Tokens     
+`bcryptjs` npm module: Optimized bcrypt in JavaScript
