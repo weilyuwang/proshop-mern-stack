@@ -17,10 +17,15 @@ const LoginScreen = ({ location, history }) => {
   const userLogin = useSelector((state) => state.userLogin);
   const { loading, error, userInfo } = userLogin;
 
+  // parse redirect parameter if there's any
+  // e.g. when we click `continue to checkout` button:
+  // history.push("/login?redirect=shipping");
   const redirect = location.search ? location.search.split("=")[1] : "/";
 
   useEffect(() => {
-    // If userInfo data exists (user logged in) - redirect user to home page
+    // If userInfo data exists (user already logged in),
+    // redirect user to home page or to the specified redirect page (/login?redirect=shipping)
+    // same thing applies to register page
     if (userInfo) {
       history.push(redirect);
     }
