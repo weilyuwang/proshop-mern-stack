@@ -7,6 +7,7 @@ import connectDB from "./config/db.js";
 
 import productRoutes from "./routes/productRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
+import orderRoutes from "./routes/orderRoutes.js";
 
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 
@@ -29,6 +30,9 @@ app.use("/api/products", productRoutes);
 
 // User/Authentication route
 app.use("/api/users", userRoutes);
+
+// Order route
+app.use("/api/orders", orderRoutes);
 
 // For the rest routes that are not defined above: return 404 error
 app.use(notFound);
