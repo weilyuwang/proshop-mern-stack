@@ -28,7 +28,7 @@
 
 ### Theme
 
-`Bootswatch - LUX` with `react-bootstrap` npm module
+`Bootswatch - Sketchy` [https://bootswatch.com/sketchy] with `react-bootstrap` npm module
 
 ### Icons
 
