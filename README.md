@@ -44,6 +44,11 @@
 
 `Redux Pattern` for global-level state management with `redux`, `react-redux` and `redux-thunk` npm modules
 
+### Handle Payment
+
+`react-paypal-button-v2` npm module for handling PayPal payments
+
+
 ## NodeJS Backend
 
 ### ES Module
@@ -64,3 +69,5 @@
 
 `jsonwebtoken` npm module: An implementation of JSON Web Tokens     
 `bcryptjs` npm module: Optimized bcrypt in JavaScript
+
+

@@ -34,6 +34,10 @@ app.use("/api/users", userRoutes);
 // Order route
 app.use("/api/orders", orderRoutes);
 
+app.get("/api/config/paypal", (req, res) =>
+  res.send(process.env.PAYPAL_CLIENT_ID)
+);
+
 // For the rest routes that are not defined above: return 404 error
 app.use(notFound);
 
