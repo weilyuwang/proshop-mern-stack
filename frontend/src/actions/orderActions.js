@@ -12,6 +12,8 @@ import {
   ORDER_LIST_MY_REQUEST,
   ORDER_LIST_MY_SUCCESS,
 } from "../constants/orderConstants";
+import { CART_RESET } from "../constants/cartConstants";
+
 import axios from "axios";
 
 export const createOrder = (order) => async (dispatch, getState) => {
@@ -114,6 +116,11 @@ export const payOrder = (orderId, paymentResult) => async (
     dispatch({
       type: ORDER_PAY_SUCCESS,
       payload: data,
+    });
+
+    // Clear out the cart once the payment is successful
+    dispatch({
+      type: CART_RESET,
     });
   } catch (error) {
     dispatch({

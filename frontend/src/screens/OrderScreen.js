@@ -36,10 +36,12 @@ const OrderScreen = ({ match }) => {
       document.body.appendChild(script);
     };
 
-    // if order is not there - dispatch getOrderDetails action
-    // or if the payment has just been successfully made, i.e. successPay == true
+    // 1. if order is not there - dispatch getOrderDetails action
+    // 2. if order._id !== orderId i.e. user is checking a different order,
+    // dispatch getOrderDetails action
+    // 3. if the payment has just been successfully made, i.e. successPay == true
     // also dispatch getOrderDetails action to fetch the updated order details
-    if (!order || successPay) {
+    if (!order || order._id !== orderId || successPay) {
       // dispatch({ type: ORDER_PAY_RESET }) to reset/clear the orderPay state
       // so that succesPay will be null to avoid constantly dispatch(getOrderDetails(orderId));
       dispatch({ type: ORDER_PAY_RESET });
