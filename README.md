@@ -60,6 +60,43 @@
 
 - Project deployment
 
+## Run locally:
+
+#### Install dependencies
+
+```
+npm install
+
+cd frontend && npm install
+```
+
+#### Create .env file
+
+```
+Under the project root directory, create a `.env` file and include the following vars:
+
+NODE_ENV = development
+PORT = 5000
+MONGO_URI = ...
+JWT_SECRET = ...
+PAYPAL_CLIENT_ID = ...
+
+```
+
+- To use `PayPal API` along with `PAYPAL_CLIENT_ID`, checkout @https://developer.paypal.com/home
+
+#### Start the application (both Express server and React frontend):
+
+```
+npm run dev
+```
+
+#### To preload data into the Mongo database with the seeder script
+
+```
+node backend/seeder
+```
+
 ## Dev Tools (Optional)
 
 ### To enable hot reload
