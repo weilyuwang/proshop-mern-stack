@@ -1,5 +1,65 @@
 # ProShop MERN Stack
 
+## An E-Commerce platform built from the ground up with React, Redux, Express & MongoDB
+
+## Functionalities
+
+- Full featured shopping cart
+
+- Product reviews and ratings
+
+- Top products carousel
+
+- Product pagination
+
+- Product search feature
+
+- User profile with orders
+
+- Admin product management
+
+- Admin user management
+
+- Admin Order details page
+
+- Mark orders as delivered option
+
+- Checkout process (shipping, payment method, etc)
+
+- PayPal / credit card integration
+
+- Custom database seeder script
+
+## Tech Stacks used/learned throughout building this project
+
+- React with Functional Components & Hooks
+
+- React router
+
+- React-Bootstrap UI library
+
+- Component level state & props
+
+- Managing global state with Redux (Actions & Reducers)
+
+- Using Redux state in components (useDispatch & useSelector)
+
+- Creating an extensive back end with Express
+
+- Working with a MongoDB database and the Mongoose ODM
+
+- JWT authentication (JSON web tokens)
+
+- Creating custom authentication middleware
+
+- Custom error handler
+
+- Integrating the PayPal API
+
+- Environment variables
+
+- Project deployment
+
 ## Dev Tools (Optional)
 
 ### To enable hot reload
@@ -48,7 +108,6 @@
 
 `react-paypal-button-v2` npm module for handling PayPal payments
 
-
 ## NodeJS Backend
 
 ### ES Module
@@ -62,12 +121,9 @@
 
 `MongoDB Atlas` + `mongoose` npm module
 
-
 ## Authentication
 
 ### JSON Web Token
 
-`jsonwebtoken` npm module: An implementation of JSON Web Tokens     
+`jsonwebtoken` npm module: An implementation of JSON Web Tokens  
 `bcryptjs` npm module: Optimized bcrypt in JavaScript
-
-
