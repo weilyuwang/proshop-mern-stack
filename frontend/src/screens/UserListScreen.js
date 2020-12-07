@@ -1,12 +1,30 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { LinkContainer } from "react-router-bootstrap";
-import { Table, Button } from "react-bootstrap";
+import { Table, Button, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import { listUsers, deleteUser } from "../actions/userActions";
 
 const UserListScreen = ({ history }) => {
+  const [show, setShow] = useState(false);
+  const [userToDelete, setUserToDelete] = useState(null);
+
+  const handleClose = () => {
+    setShow(false);
+    setUserToDelete(null);
+  };
+
+  const handleShow = (user) => {
+    setUserToDelete(user);
+    setShow(true);
+  };
+
+  const handleDelete = () => {
+    dispatch(deleteUser(userToDelete._id));
+    handleClose();
+  };
+
   const dispatch = useDispatch();
 
   const userList = useSelector((state) => state.userList);
@@ -26,12 +44,6 @@ const UserListScreen = ({ history }) => {
     }
     // add successDelete to the dependency - reload the user list once the delete is successful
   }, [dispatch, history, userInfo, successDelete]);
-
-  const deleteHandler = (id) => {
-    if (window.confirm("Are you sure")) {
-      dispatch(deleteUser(id));
-    }
-  };
 
   return (
     <>
@@ -76,7 +88,7 @@ const UserListScreen = ({ history }) => {
                   <Button
                     variant="danger"
                     className="btn-sm"
-                    onClick={() => deleteHandler(user._id)}
+                    onClick={() => handleShow(user)}
                   >
                     <i className="fas fa-trash"></i>
                   </Button>
@@ -85,6 +97,25 @@ const UserListScreen = ({ history }) => {
             ))}
           </tbody>
         </Table>
+      )}
+
+      {userToDelete && (
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Confirm your action</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            Are you sure to delete user {userToDelete.name}
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Cancel
+            </Button>
+            <Button variant="primary" onClick={handleDelete}>
+              Delete
+            </Button>
+          </Modal.Footer>
+        </Modal>
       )}
     </>
   );
