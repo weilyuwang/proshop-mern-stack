@@ -63,7 +63,7 @@ const registerUser = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc      Get user profile
+// @desc      Get the current/logged-in user's profile
 // @route     GET /api/users/profile
 // @access    Private
 const getUserProfile = asyncHandler(async (req, res) => {
@@ -85,7 +85,7 @@ const getUserProfile = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc      Update user profile
+// @desc      Update the current/logged-in user's profile
 // @route     PUT /api/users/profile
 // @access    Private
 const updateUserProfile = asyncHandler(async (req, res) => {
@@ -142,6 +142,47 @@ const deleteUser = asyncHandler(async (req, res) => {
   }
 });
 
+// @desc      Get user by ID
+// @route     GET /api/users/:id
+// @access    Private/Admin
+const getUserById = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.params.id).select("-password"); //drop the password
+  if (user) {
+    res.json(user);
+  } else {
+    res.status(404);
+    throw new Error("User not found");
+  }
+});
+
+// @desc      Update user
+// @route     PUT /api/users/:id
+// @access    Private/Admin
+const updateUser = asyncHandler(async (req, res) => {
+  // user property is added to req object by the protect auth middleware
+  const user = await User.findById(req.params.id);
+
+  if (user) {
+    user.name = req.body.name || user.name;
+    user.email = req.body.email || user.email;
+    user.isAdmin = req.body.isAdmin;
+
+    const updatedUser = await user.save();
+
+    // send the updated user info
+    res.json({
+      _id: updatedUser._id,
+      name: updatedUser.name,
+      email: updatedUser.email,
+      isAdmin: updatedUser.isAdmin,
+    });
+  } else {
+    // Authorization token has been verified, but user is not found
+    res.status(404);
+    throw new Error("User not found");
+  }
+});
+
 export {
   authUser,
   getUserProfile,
@@ -149,4 +190,6 @@ export {
   updateUserProfile,
   getUsers,
   deleteUser,
+  getUserById,
+  updateUser,
 };
