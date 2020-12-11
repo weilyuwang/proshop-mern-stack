@@ -91,10 +91,12 @@ PAYPAL_CLIENT_ID = ...
 npm run dev
 ```
 
-#### To preload data into the Mongo database with the seeder script
+#### To load the sample data into or clear all data from the Mongo database with the seeder script
 
 ```
-node backend/seeder
+npm run data:import
+
+npm run data:destroy
 ```
 
 ## Dev Tools (Optional)
