@@ -28,10 +28,6 @@ if (process.env.NODE_ENV === "development") {
 // middleware for parsing JSON request body
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("API is running");
-});
-
 // Product route
 app.use("/api/products", productRoutes);
 
@@ -51,6 +47,24 @@ app.get("/api/config/paypal", (req, res) =>
 // make uploads/ directory static/public
 const __dirname = path.resolve();
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
+
+// Production env
+if (process.env.NODE_ENV === "production") {
+  // Make /build static
+  app.use(express.static(path.join(__dirname, "/frontend/build")));
+  // Serve /build/index.html
+  app.get(
+    "*",
+    (req, res) =>
+      // res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"))
+      res.sendFile(path.join(__dirname, "frontend/build/index.html")) // same as above
+  );
+} else {
+  // Development env
+  app.get("/", (req, res) => {
+    res.send("API is running");
+  });
+}
 
 // For the rest routes that are not defined above: return 404 error
 app.use(notFound);
