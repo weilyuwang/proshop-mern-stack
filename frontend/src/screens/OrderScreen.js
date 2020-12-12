@@ -16,7 +16,7 @@ import {
   ORDER_DELIVER_RESET,
 } from "../constants//orderConstants";
 
-const OrderScreen = ({ match }) => {
+const OrderScreen = ({ match, history }) => {
   const orderId = match.params.id;
 
   const [sdkReady, setSdkReady] = useState(false);
@@ -36,6 +36,10 @@ const OrderScreen = ({ match }) => {
   const { loading: loadingDeliver, success: successDeliver } = orderDeliver;
 
   useEffect(() => {
+    if (!userInfo) {
+      history.push("/login");
+    }
+
     // Func to add the PayPal JavaScript SDK Script
     const addPayPalScript = async () => {
       const { data: clientId } = await axios.get("/api/config/paypal");
@@ -67,7 +71,7 @@ const OrderScreen = ({ match }) => {
         setSdkReady(true);
       }
     }
-  }, [dispatch, order, orderId, successPay, successDeliver]);
+  }, [dispatch, order, orderId, successPay, successDeliver, userInfo, history]);
 
   // Func to handle success PayPal payment
   const successPaymentHandler = (paymentResult) => {
@@ -212,17 +216,20 @@ const OrderScreen = ({ match }) => {
               )}
 
               {loadingDeliver && <Loader />}
-              {userInfo.isAdmin && order.isPaid && !order.isDelivered && (
-                <ListGroup.Item>
-                  <Button
-                    type="button"
-                    className="btn btn-block"
-                    onClick={deliverHandler}
-                  >
-                    Mark As Delivered
-                  </Button>
-                </ListGroup.Item>
-              )}
+              {userInfo &&
+                userInfo.isAdmin &&
+                order.isPaid &&
+                !order.isDelivered && (
+                  <ListGroup.Item>
+                    <Button
+                      type="button"
+                      className="btn btn-block"
+                      onClick={deliverHandler}
+                    >
+                      Mark As Delivered
+                    </Button>
+                  </ListGroup.Item>
+                )}
             </ListGroup>
           </Card>
         </Col>
