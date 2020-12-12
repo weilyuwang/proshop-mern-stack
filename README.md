@@ -75,8 +75,8 @@ cd frontend && npm install
 ```
 Under the project root directory, create a `.env` file and include the following vars:
 
-NODE_ENV = development
-PORT = 5000
+NODE_ENV = ...
+PORT = ...
 MONGO_URI = ...
 JWT_SECRET = ...
 PAYPAL_CLIENT_ID = ...
@@ -203,3 +203,19 @@ web: node backend/server.js
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
 
 ```
+
+#### Set up heroku remote git repo
+
+```
+heroku git:remote -a APP_NAME
+
+git push heroku master
+```
+
+#### Add env variables in heroku settings
+
+- To match with values inside `.env` file
+
+#### Live App
+
+- https://weilyu-proshop.herokuapp.com/
