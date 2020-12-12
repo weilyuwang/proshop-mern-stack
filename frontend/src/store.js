@@ -30,6 +30,7 @@ import {
   orderDetailsReducer,
   orderPayReducer,
   orderListMyReducer,
+  orderListReducer,
 } from "./reducers/orderReducers";
 
 // Too use redux dev tools you need:
@@ -50,6 +51,7 @@ const reducer = combineReducers({
   orderCreate: orderCreateReducer,
   orderDetails: orderDetailsReducer,
   orderPay: orderPayReducer,
+  orderList: orderListReducer,
   orderListMy: orderListMyReducer,
   userDelete: userDeleteReducer,
   userUpdate: userUpdateReducer,
