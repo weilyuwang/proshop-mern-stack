@@ -102,7 +102,7 @@ const updateProduct = asyncHandler(async (req, res) => {
 });
 
 // @desc      Create new review
-// @route     PUT /api/products/:id/reviews
+// @route     POST /api/products/:id/reviews
 // @access    Private
 const createProductReview = asyncHandler(async (req, res) => {
   const { rating, comment } = req.body;
