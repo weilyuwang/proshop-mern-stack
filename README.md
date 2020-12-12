@@ -137,6 +137,10 @@ npm run data:destroy
 
 `font-awesome` CDN from cdnjs.com
 
+### Titles & Meta
+
+`react-helmet`: A document head manager for React
+
 ### SPA Routes
 
 `react-router-dom` + `react-router-bootstrap`: Integration between React Router v4 and React Bootstrap.

@@ -11,6 +11,7 @@ import {
   Form,
 } from "react-bootstrap";
 import Rating from "../components/Rating";
+import Meta from "../components/Meta";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import {
@@ -73,6 +74,7 @@ const ProductScreen = ({ history, match }) => {
         <Message variant="danger">{error}</Message>
       ) : (
         <>
+          <Meta title={product.name} />
           <Row>
             <Col lg={6}>
               {/* fluid property will keep the image inside its container without overflow */}
