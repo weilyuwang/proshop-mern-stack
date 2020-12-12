@@ -7,8 +7,16 @@ import Product from "../models/productModel.js";
 // @route     GET /api/products
 // @access    Public
 const getProducts = asyncHandler(async (req, res) => {
-  // Returns every product we have in database
-  const products = await Product.find({});
+  const keyword = req.query.keyword
+    ? {
+        name: {
+          $regex: req.query.keyword,
+          $options: "i",
+        },
+      }
+    : {};
+
+  const products = await Product.find({ ...keyword });
 
   // convert the list of objects into JSON
   res.json(products);
