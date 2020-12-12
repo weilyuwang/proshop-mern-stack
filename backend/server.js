@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import colors from "colors";
+import morgan from "morgan";
 import path from "path";
 
 // Make sure to include .js when importing files using ES Module import syntax
@@ -19,6 +20,10 @@ dotenv.config(); // Loads .env file contents into | process.env
 connectDB();
 
 const app = express();
+
+if (process.env.NODE_ENV === "development") {
+  app.use(morgan("dev"));
+}
 
 // middleware for parsing JSON request body
 app.use(express.json());

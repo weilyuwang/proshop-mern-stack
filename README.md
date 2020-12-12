@@ -113,6 +113,10 @@ npm run data:destroy
 
 `colors` npm module
 
+### Logger
+
+`morgan` npm module to log client requests on the server console
+
 ### Redux Dev Tools
 
 `redux-devtools-extension` npm module + Google Chrome `Redux DevTools` extension
