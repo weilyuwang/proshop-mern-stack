@@ -178,3 +178,28 @@ npm run data:destroy
 
 `jsonwebtoken` npm module: An implementation of JSON Web Tokens  
 `bcryptjs` npm module: Optimized bcrypt in JavaScript
+
+## Deployment
+
+### Heroku
+
+#### Heroku Login & Create app
+
+```
+heroku login
+
+heroku create APP_NAME
+```
+
+#### Create Procfile
+
+```
+web: node backend/server.js
+```
+
+#### Set up heroku-postbuild command
+
+```
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+
+```
