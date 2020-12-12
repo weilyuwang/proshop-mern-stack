@@ -154,6 +154,10 @@ npm run data:destroy
 - To use `ES Module` instead of `CommonJS Module`:  
   Add `“type”: “module”` to the `package.json` for your project, and Node.js will treat all .js files in your project as ES modules.
 
+### File Upload
+
+`Multer` npm module for hanlding file uploading
+
 ## Database
 
 ### MongoDB
